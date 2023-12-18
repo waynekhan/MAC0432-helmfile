@@ -1,0 +1,11 @@
+ApplicationNodes:
+  jwtSecret: ""  # FIXME: echo -n "xkcd" | openssl dgst -sha256 -hmac "correct horse battery staple" -binary | base64
+
+  sonarProperties:
+    sonar.forceAuthentication: true
+
+logging:
+  jsonOutput: true
+
+nginx:
+  enabled: false

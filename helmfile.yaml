@@ -1,0 +1,16 @@
+repositories:
+- name: ingress-nginx
+  url: https://kubernetes.github.io/ingress-nginx
+- name: postgresql
+  url: https://raw.githubusercontent.com/bitnami/charts/archive-full-index/bitnami
+- name: sonarqube
+  url: https://SonarSource.github.io/helm-chart-sonarqube
+
+releases:
+- name: sonarqube-dce-dev-sonarqube-dce
+  namespace: sonarqube-dce-dev
+  # chart: sonarqube/sonarqube-dce
+  # version: 7
+  chart: ../../SonarSource/helm-chart-sonarqube/charts/sonarqube-dce
+  values:
+  - dev/sonarqube-dce/values.yaml
