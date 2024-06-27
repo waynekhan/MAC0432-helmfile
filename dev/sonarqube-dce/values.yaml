@@ -8,4 +8,4 @@ logging:
   jsonOutput: true
 
 nginx:
-  enabled: false
+  enabled: true
