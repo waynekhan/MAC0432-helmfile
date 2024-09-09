@@ -1,11 +1,19 @@
 ApplicationNodes:
-  jwtSecret: ""  # FIXME: echo -n "xkcd" | openssl dgst -sha256 -hmac "correct horse battery staple" -binary | base64
+  jwtSecret: "ayst7U55rQsT+KQOsBEy8/bdfqOy7ywksJ80Ro0zMF8="  # FIXME: echo -n "xkcd" | openssl dgst -sha256 -hmac "correct horse battery staple" -binary | base64
 
   sonarProperties:
-    sonar.forceAuthentication: true
+    sonar.log.level: DEBUG
+    #sonar.security.realm: LDAP
 
 logging:
   jsonOutput: true
 
 nginx:
   enabled: true
+
+#searchNodes:
+#  searchAuthentication:
+#    enabled: true
+#    keyStoreSecret: "es-secret"
+#    keyStorePasswordSecret: "search-trust-pass"
+#    userPassword: "toto"
