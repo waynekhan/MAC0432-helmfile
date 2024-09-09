@@ -1,11 +1,17 @@
 ApplicationNodes:
-  jwtSecret: ""  # FIXME: echo -n "xkcd" | openssl dgst -sha256 -hmac "correct horse battery staple" -binary | base64
+  jwtSecret: ""  # FIXME
 
   sonarProperties:
-    sonar.forceAuthentication: true
+    sonar.log.level: DEBUG
+    #sonar.security.realm: LDAP
+
+ingress-nginx:
+  enabled: true
+
+ingress:
+  enabled: true
+  hosts:
+    - name: sonarqube.aks.sonarsource.org
 
 logging:
   jsonOutput: true
-
-nginx:
-  enabled: true
