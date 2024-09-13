@@ -4,6 +4,9 @@
 # Apply this helmfile to your cluster
 helmfile -i apply -l=name=sonarqube
 
-# Listen on port 9020 locally, forward to port 9000 of the service
+# PostgreSQL localhost:5432
+k port-forward svc/sonarqube-postgresql 5432:5432
+
+# SonarQube localhost:9020
 k port-forward svc/sonarqube-sonarqube-dce 9020:9000
 ```
