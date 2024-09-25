@@ -1,0 +1,11 @@
+prometheusExporter:
+  enabled: true
+  podMonitor:
+    enabled: true
+
+prometheusMonitoring:
+  podMonitor:
+    enabled: true
+
+sonarProperties:
+  sonar.log.level: DEBUG

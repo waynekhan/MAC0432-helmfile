@@ -1,30 +1,17 @@
 repositories:
-- name: ingress-nginx
-  url: https://kubernetes.github.io/ingress-nginx
-- name: jetstack
-  url: https://charts.jetstack.io
-- name: postgresql
-  url: https://raw.githubusercontent.com/bitnami/charts/archive-full-index/bitnami
 - name: sonarqube
   url: https://SonarSource.github.io/helm-chart-sonarqube
 
 releases:
-- name: cert-manager
-  namespace:
-  chart: jetstack/cert-manager
-  version: 1
+- name: sonarqube
+  namespace: sonarqube-ee
+  chart: sonarqube/sonarqube
+  version: 10.6.1+3163
   values:
-  - dev/cert-manager/values.yaml
-- name: ingress-nginx
-  namespace: ingress-nginx
-  chart: ingress-nginx/ingress-nginx
-  version: 4
-  values:
-  - dev/ingress-nginx/values.yaml
-- name: sonarqube-dce-dev-sonarqube-dce
-  namespace: sonarqube-dce-dev
-  chart: ../../SonarSource/helm-chart-sonarqube/charts/sonarqube-dce
-  # chart: sonarqube/sonarqube-dce
-  # version: 7
-  values:
-  - dev/sonarqube-dce/values.yaml
+  - dev/sonarqube-ee/values.yaml
+# - name: sonarqube
+#   namespace: sonarqube-dce
+#   chart: sonarqube/sonarqube-dce
+#   version: 10.6.0+3033
+#   values:
+#   - dev/sonarqube-dce/values.yaml
