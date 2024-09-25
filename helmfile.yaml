@@ -4,11 +4,11 @@ repositories:
 
 releases:
 - name: sonarqube
-  namespace: sonarqube-ee
+  namespace: sonarqube
   chart: sonarqube/sonarqube
   version: 10.6.1+3163
   values:
-  - dev/sonarqube-ee/values.yaml
+  - dev/sonarqube/values.yaml
 # - name: sonarqube
 #   namespace: sonarqube-dce
 #   chart: sonarqube/sonarqube-dce
