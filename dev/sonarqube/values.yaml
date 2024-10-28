@@ -1,3 +1,14 @@
+edition: "enterprise"
+
+ingress:
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "64m"
+  enabled: true
+  hosts:
+    - name: sonarqube.waynekhan.net
+      path: /
+  ingressClassName: "nginx"
+
 prometheusExporter:
   enabled: true
   podMonitor:
