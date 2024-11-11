@@ -18,7 +18,7 @@ releases:
 - name: sonarqube
   namespace: sonarqube
   chart: sonarqube/sonarqube
-  version: 10.6.1+3163
+  version: 10.7.0+3598
   values:
   - dev/sonarqube/values.yaml
 - name: sonarqube
