@@ -1,9 +1,11 @@
 ApplicationNodes:
-  jwtSecret: ""  # FIXME
+  jwtSecret: "" # FIXME
 
   sonarProperties:
     sonar.log.level: DEBUG
-    #sonar.security.realm: LDAP
+    # sonar.security.realm: LDAP
+
+  sonarSecretProperties: sonarqube-dce-sonarqube-dce-secret-properties
 
 ingress-nginx:
   enabled: true
