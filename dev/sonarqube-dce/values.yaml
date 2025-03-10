@@ -1,19 +1,32 @@
-ApplicationNodes:
-  jwtSecret: "" # FIXME
+applicationNodes:
+  jwtSecret: "vzrZvlfYpkHqdxXdzPbuNvxkSToQsXRMxrc1zonlkl0="
+
+  resources:
+    limits:
+      memory: "2G"
+    requests:
+      cpu: "800m"
+      memory: "2G"
 
   sonarProperties:
     sonar.log.level: DEBUG
-    # sonar.security.realm: LDAP
 
-  sonarSecretProperties: sonarqube-dce-sonarqube-dce-secret-properties
-
-ingress-nginx:
-  enabled: true
-
-ingress:
-  enabled: true
-  hosts:
-    - name: sonarqube.aks.sonarsource.org
+    sonar.ce.javaOpts: "-Xmx2G"
+    sonar.web.javaOpts: "-Xmx512M"
 
 logging:
   jsonOutput: true
+
+monitoringPasscode: "123456"
+
+searchNodes:
+  resources:
+    limits:
+      memory: "3G"
+    requests:
+      cpu: "400m"
+      memory: "3G"
+
+  sonarProperties:
+    sonar.log.level: DEBUG
+    sonar.search.javaOpts: "-Xms2G -Xmx2G"
