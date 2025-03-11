@@ -1,6 +1,15 @@
 applicationNodes:
   jwtSecret: "vzrZvlfYpkHqdxXdzPbuNvxkSToQsXRMxrc1zonlkl0="
 
+  prometheusExporter:
+    enabled: true
+
+  prometheusMonitoring:
+    podMonitor:
+      enabled: true
+      labels:
+        release: "kube-prometheus-stack"
+
   resources:
     limits:
       memory: "2G"
