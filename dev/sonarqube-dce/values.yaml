@@ -23,7 +23,6 @@ applicationNodes:
 
   sonarProperties:
     sonar.log.level: DEBUG
-
     sonar.ce.javaOpts: "-Xmx2G"
     sonar.web.javaOpts: "-Xmx512M"
 

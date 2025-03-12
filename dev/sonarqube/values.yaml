@@ -1,13 +1,6 @@
 edition: "enterprise"
 
-ingress:
-  annotations:
-    nginx.ingress.kubernetes.io/proxy-body-size: "64m"
-  enabled: true
-  hosts:
-    - name: sonarqube.waynekhan.net
-      path: /
-  ingressClassName: "nginx"
+monitoringPasscode: "123456"
 
 prometheusExporter:
   enabled: true
@@ -22,3 +15,7 @@ prometheusMonitoring:
 
 sonarProperties:
   sonar.log.level: DEBUG
+
+  sonar.ce.javaOpts: "-Xmx2G"
+  sonar.search.javaOpts: "-Xms2G -Xmx2G"
+  sonar.web.javaOpts: "-Xmx512M"

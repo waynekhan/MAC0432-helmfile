@@ -20,7 +20,7 @@ releases:
 - name: sonarqube
   namespace: sonarqube
   chart: sonarqube/sonarqube
-  version: 10.7.0+3598
+  version: 2025.1
   values:
   - dev/sonarqube/values.yaml
 - name: sonarqube-dce
