@@ -13,6 +13,13 @@ prometheusMonitoring:
     labels:
       release: "kube-prometheus-stack"
 
+resources:
+  limits:
+    memory: "6G"
+  requests:
+    cpu: "400m"
+    memory: "6G"
+
 sonarProperties:
   sonar.log.level: DEBUG
 
