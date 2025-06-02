@@ -35,5 +35,6 @@ Et voilà! Port forwarding will, of course, also work for Prometheus, SonarQube;
 ```text
 k port-forward svc/kube-prometheus-stack-prometheus 9090:9090
 
+k port-forward svc/sonarqube-sonarqube 9000:9000
 k port-forward svc/sonarqube-dce-sonarqube-dce 9000:9000
 ```
