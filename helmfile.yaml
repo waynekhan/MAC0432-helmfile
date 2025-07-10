@@ -5,24 +5,47 @@ repositories:
   url: https://prometheus-community.github.io/helm-charts
 - name: sonarqube
   url: https://SonarSource.github.io/helm-chart-sonarqube
+- name: vm
+  url: https://victoriametrics.github.io/helm-charts
 
 releases:
+# ingress-nginx
+
 - name: ingress-nginx
   namespace: ingress-nginx
   chart: ingress-nginx/ingress-nginx
   version: 4.11.3
+
+# monitoring
+
 - name: kube-prometheus-stack
   namespace: monitoring
   chart: prometheus-community/kube-prometheus-stack
   version: 62.7.0
   values:
   - dev/kube-prometheus-stack/values.yaml
+
+# sonarqube
+
+- name: prometheus
+  namespace: sonarqube
+  chart: prometheus-community/prometheus
+  version: 27.23.0
+  values:
+  - dev/prometheus/values.yaml
 - name: sonarqube
   namespace: sonarqube
   chart: sonarqube/sonarqube
   version: 2025.3
   values:
   - dev/sonarqube/values.yaml
+- name: victoria-metrics-agent
+  namespace: sonarqube
+  chart: vm/victoria-metrics-agent
+  version: 0.24.0
+
+# sonarqube-dce
+
 - name: sonarqube-dce
   namespace: sonarqube-dce
   chart: sonarqube/sonarqube-dce
