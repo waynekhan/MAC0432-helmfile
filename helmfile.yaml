@@ -14,9 +14,9 @@ releases:
   values:
   - dev/ingress-nginx/values.yaml
 - name: sonarqube-dce
-  namespace: sonarqube-dce-dev
+  namespace: sonarqube-dce
   # chart: ../helm-chart-sonarqube/charts/sonarqube-dce
   chart: sonarqube/sonarqube-dce
-  version: 10
+  version: 2025.1.2
   values:
   - dev/sonarqube-dce/values.yaml

@@ -1,19 +1,48 @@
 ApplicationNodes:
   jwtSecret: "ayst7U55rQsT+KQOsBEy8/bdfqOy7ywksJ80Ro0zMF8="  # FIXME: echo -n "xkcd" | openssl dgst -sha256 -hmac "correct horse battery staple" -binary | base64
 
+  resources:
+    limits:
+      memory: "3G"
+    requests:
+      cpu: "800m"
+      memory: "3G"
+
   sonarProperties:
     sonar.log.level: DEBUG
-    #sonar.security.realm: LDAP
+
+    sonar.ce.javaOpts: "-Xmx2G"
+    sonar.web.javaOpts: "-Xmx512M"
+
+extraInitContainers:
+  - name: netshoot
+    image: nicolaka/netshoot
+    command:
+      - echo
+    args:
+      - hello
 
 logging:
   jsonOutput: true
 
+monitoringPasscode: "123456"
+
 nginx:
   enabled: true
 
-#searchNodes:
-#  searchAuthentication:
-#    enabled: true
-#    keyStoreSecret: "es-secret"
-#    keyStorePasswordSecret: "search-trust-pass"
-#    userPassword: "toto"
+searchNodes:
+  resources:
+    limits:
+      memory: "5G"
+    requests:
+      cpu: "400m"
+      memory: "5G"
+
+  searchAuthentication:
+    enabled: true
+    keyStoreSecret: "es-secret"
+    keyStorePasswordSecret: "search-trust-pass"
+    userPassword: "toto"
+
+  sonarProperties:
+    sonar.search.javaOpts: "-Xms4G -Xmx4G"
