@@ -1,10 +1,24 @@
 repositories:
 - name: postgresql
   url: https://raw.githubusercontent.com/bitnami/charts/archive-full-index/bitnami
+- name: prometheus-community
+  url: https://prometheus-community.github.io/helm-charts
 - name: sonarqube
   url: https://SonarSource.github.io/helm-chart-sonarqube
 
 releases:
+- name: kube-prometheus-stack
+  namespace: monitoring
+  chart: prometheus-community/kube-prometheus-stack
+  version: 62.7.0
+  values:
+  - dev/kube-prometheus-stack/values.yaml
+- name: sonarqube
+  namespace: sonarqube
+  chart: sonarqube/sonarqube
+  version: 2025.3
+  values:
+  - dev/sonarqube/values.yaml
 - name: sonarqube-dce
   namespace: sonarqube-dce
   chart: sonarqube/sonarqube-dce

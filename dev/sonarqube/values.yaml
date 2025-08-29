@@ -1,0 +1,38 @@
+edition: "enterprise"
+
+monitoringPasscode: "123456"
+
+plugins:
+  install:
+    - "https://github.com/SonarOpenCommunity/sonar-cxx/releases/download/cxx-2.2.0/sonar-cxx-plugin-2.2.0.1110.jar"
+    - "https://github.com/checkstyle/sonar-checkstyle/releases/download/10.21.1/checkstyle-sonar-plugin-10.21.1.jar"
+    - "https://github.com/spotbugs/sonar-findbugs/releases/download/4.5.1/sonar-findbugs-plugin.jar"
+    - "https://github.com/jborgers/sonar-pmd/releases/download/4.0.3/sonar-pmd-plugin-4.0.3.jar"
+    - "https://github.com/willemsrb/sonar-jdepend-plugin/releases/download/sonar-jdepend-plugin-1.1.1/sonar-jdepend-plugin-1.1.1.jar"
+    - "https://github.com/devcon5io/mutation-analysis-plugin/releases/download/v1.8/mutation-analysis-plugin-1.8.jar"
+    - "https://github.com/sanju349/cloverplugin/releases/download/new/sonar-clover-plugin.jar"
+
+prometheusExporter:
+  enabled: true
+  podMonitor:
+    enabled: false
+
+prometheusMonitoring:
+  podMonitor:
+    enabled: false
+    labels:
+      release: "kube-prometheus-stack"
+
+resources:
+  limits:
+    memory: "6G"
+  requests:
+    cpu: "400m"
+    memory: "6G"
+
+sonarProperties:
+  sonar.log.level: DEBUG
+
+  sonar.ce.javaOpts: "-Xmx2G"
+  sonar.search.javaOpts: "-Xms2G -Xmx2G"
+  sonar.web.javaOpts: "-Xmx512M"
