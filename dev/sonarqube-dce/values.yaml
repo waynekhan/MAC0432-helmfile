@@ -42,5 +42,11 @@ searchNodes:
       cpu: "400m"
       memory: "5G"
 
+  searchAuthentication:
+    enabled: true
+    keyStoreSecret: "sonarqube-dce-sonarqube-dce-es-secret" # k create secret generic sonarqube-dce-sonarqube-dce-es-secret --from-file=elastic-stack-ca.p12
+    keyStorePasswordSecret: "sonarqube-dce-sonarqube-dce-search-trust-pass" # k create secret generic sonarqube-dce-sonarqube-dce-search-trust-pass --from-literal SONAR_CLUSTER_ES_SSL_KEYSTOREPASSWORD="" --from-literal SONAR_CLUSTER_ES_SSL_TRUSTSTOREPASSWORD=""
+    userPassword: "toto" # curl http://elastic:toto@sonarqube-dce-sonarqube-dce-search:9001
+
   sonarProperties:
     sonar.search.javaOpts: "-Xms4G -Xmx4G"
