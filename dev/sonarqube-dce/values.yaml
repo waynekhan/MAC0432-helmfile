@@ -1,5 +1,20 @@
-ApplicationNodes:
-  jwtSecret: "ayst7U55rQsT+KQOsBEy8/bdfqOy7ywksJ80Ro0zMF8="  # FIXME: echo -n "xkcd" | openssl dgst -sha256 -hmac "correct horse battery staple" -binary | base64
+applicationNodes:
+  jwtSecret: "vzrZvlfYpkHqdxXdzPbuNvxkSToQsXRMxrc1zonlkl0="
+
+  plugins:
+    install:
+      - "https://github.com/dependency-check/dependency-check-sonar-plugin/releases/download/5.0.0/sonar-dependency-check-plugin-5.0.0.jar"
+
+    # netrcCreds: "sonarqube-dce-sonarqube-dce-netrc" # k create secret generic sonarqube-dce-sonarqube-dce-netrc --from-file=netrc=~/.netrc
+
+  prometheusExporter:
+    enabled: true
+
+  prometheusMonitoring:
+    podMonitor:
+      enabled: true
+      labels:
+        release: "kube-prometheus-stack"
 
   resources:
     limits:
@@ -14,21 +29,10 @@ ApplicationNodes:
     sonar.ce.javaOpts: "-Xmx2G"
     sonar.web.javaOpts: "-Xmx512M"
 
-extraInitContainers:
-  - name: netshoot
-    image: nicolaka/netshoot
-    command:
-      - echo
-    args:
-      - hello
-
 logging:
   jsonOutput: true
 
 monitoringPasscode: "123456"
-
-nginx:
-  enabled: true
 
 searchNodes:
   resources:
@@ -40,9 +44,9 @@ searchNodes:
 
   searchAuthentication:
     enabled: true
-    keyStoreSecret: "es-secret"
-    keyStorePasswordSecret: "search-trust-pass"
-    userPassword: "toto"
+    keyStoreSecret: "sonarqube-dce-sonarqube-dce-es-secret" # k create secret generic sonarqube-dce-sonarqube-dce-es-secret --from-file=elastic-stack-ca.p12
+    keyStorePasswordSecret: "sonarqube-dce-sonarqube-dce-search-trust-pass" # k create secret generic sonarqube-dce-sonarqube-dce-search-trust-pass --from-literal SONAR_CLUSTER_ES_SSL_KEYSTOREPASSWORD="" --from-literal SONAR_CLUSTER_ES_SSL_TRUSTSTOREPASSWORD=""
+    userPassword: "toto" # curl http://elastic:toto@sonarqube-dce-sonarqube-dce-search:9001
 
   sonarProperties:
     sonar.search.javaOpts: "-Xms4G -Xmx4G"

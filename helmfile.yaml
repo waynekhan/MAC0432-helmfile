@@ -17,6 +17,6 @@ releases:
   namespace: sonarqube-dce
   # chart: ../helm-chart-sonarqube/charts/sonarqube-dce
   chart: sonarqube/sonarqube-dce
-  version: 2025.1.2
+  version: 2025.1.3
   values:
   - dev/sonarqube-dce/values.yaml
